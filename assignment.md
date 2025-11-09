@@ -14,7 +14,14 @@ Question: How do you create a 2x2 subplot grid in matplotlib and select the firs
 
 Answer:
 
-```python
+```
+# Create the first subplot in a 2x2 grid
+plt.subplot(2, 2, 1)  # (rows, cols, index)
+plt.plot([1, 2, 3], [4, 5, 6])
+plt.title('First Subplot')
+
+plt.tight_layout()
+plt.show()
 
 ```
 
@@ -29,7 +36,12 @@ y = [1, 4, 9, 16]
 
 Answer:
 
-```python
+```
+plt.plot(x,y,color="red",linestyle ="--")
+plt.xlabel('X-axis')
+plt.ylabel('Y-axis')
+plt.title('Red Dashed Line Example')
+plt.show()
 
 ```
 
@@ -43,7 +55,13 @@ data = np.random.randn(1000)
 
 Answer:
 
-```python
+```
+data = np.random.randn(1000)
+
+fig = plt.figure()
+ax = fig.add_subplot()
+#ax.plot(data)
+ax.hist(data, bins=30, color="black", alpha=0.3)
 
 ```
 
@@ -53,7 +71,15 @@ Question: How can you set the x-axis and y-axis labels in a matplotlib plot?
 
 Answer:
 
-```python
+```
+fig, ax = plt.subplots()
+# set the random seed to ensure reproducibility
+rng = np.random.default_rng(seed=111)
+ax.plot(rng.standard_normal(1000).cumsum())
+
+ax.set_xlabel("X Label")
+ax.set_ylabel("Y Label")
+ax.set_title("matplotlib plot")
 
 ```
 
@@ -68,7 +94,16 @@ tips = sns.load_dataset('tips')
 
 Answer:
 
-```python
+```
+ssns.barplot(x="day", y="tip", data=tips)
+
+# Add title and axis labels
+plt.title('Average Tips Amt per day')
+plt.xlabel('Day of the Week')
+plt.ylabel('Average Tip')
+
+# Show the plot
+plt.show()
 
 ```
 
@@ -78,7 +113,16 @@ Question: How to create a box plot for total_bill categorized by day in the `tip
 
 Answer:
 
-```python
+```
+sns.boxplot(x='day', y='total_bill', data=tips)
+
+# Add title and axis labels
+plt.title('Distribution of Total Bill by Day')
+plt.xlabel('Day of the Week')
+plt.ylabel('Total Bill ($)')
+
+# Show the plot
+plt.show()
 
 ```
 
